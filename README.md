@@ -46,29 +46,29 @@ This project demonstrates how I repurposed an aging **Dell OptiPlex 3020** deskt
 - Sharing externally still **in progress** (will be tackled in a separate project)
 
 ---
+### Screenshots
 
-## Screenshots
+These images were captured throughout the process and show key steps in the upgrade and installation workflow.
 
-> These images were captured throughout the process and show key steps in the upgrade and installation workflow.
+| Description | Preview |
+|-------------|---------|
+| Web UI Dashboard | ![](images/Web%20UI%20Dashboard.jpg) |
+| TrueNAS Core Installer | ![](images/TueNas%20Core%20Installation%20before%20TrueNas%20Scale%20Installation.jpg) |
+| SMB Shares | ![](images/SMB%20Config.jpg) |
+| RAM Before Upgrade | ![](images/RAM%20Upgrade%20Before..jpg) |
+| RAM After Upgrade | ![](images/RAM%20Upgrade%20After.jpg) |
+| PCIe WiFi Card Install | ![](images/PCIe%20Wifi%20Card.jpg) |
+| Windows Network Map | ![](images/Mapped%20Drive%20Window.jpg) |
+| HDD in BIOS | ![](images/HDD%20Installation%20In%20BIOS.jpg) |
+| Dataset Creation | ![](images/Dataset%20Creation.jpg) |
+| CX File Explorer (Mobile Access) | ![](images/CX%20File%20Access.jpg) |
+| BIOS Boot Order | ![](images/BIOS%20Boot%20USB.jpg) |
+| Storage Devices in TrueNAS | ![](images/Dataset%20Structure.jpg) |
+| SMB Share Configuration | ![](images/smb%20share%20config.jpg) |
+| Static IP Settings | ![](images/Static%20IP%20settings.jpg) |
+| User Configuration | ![](images/User%20config%20.jpg) |
+| User Shell Settings | ![](images/User%20Config%20shell.jpg) |
 
-| Description                         | Preview                                                   |
-|-------------------------------------|------------------------------------------------------------|
-| Web UI Dashboard                    | ![](images/Web%20UI%20Dashboard.jpg)                      |
-| TrueNAS Core Installer              | ![](images/TueNas%20Core%20Installation%20before%20TrueNas%20Scale%20Installation.jpg) |
-| SMB Shares                          | ![](images/SMB%20Config.jpg)                              |
-| RAM Before Upgrade                  | ![](images/RAM%20Upgrade%20Before..jpg)                   |
-| RAM After Upgrade                   | ![](images/RAM%20Upgrade%20After.jpg)                     |
-| PCIe WiFi Card Install              | ![](images/PCIe%20Wifi%20Card.jpg)                        |
-| Windows Network Map                 | ![](images/Mapped%20Drive%20Window.jpg)                   |
-| HDD in BIOS                         | ![](images/HDD%20Installation%20In%20BIOS.jpg)            |
-| Dataset Creation                    | ![](images/Dataset%20Creation.jpg)                        |
-| CX File Explorer (Mobile Access)    | ![](images/CX%20File%20Access.jpg)                        |
-| BIOS Boot Order                     | ![](images/BIOS%20Boot%20USB.jpg)                         |
-| Storage Pool on TrueNAS            | ![](images/Dataset%20Structure.jpg)                       |
-| SMB Share Config                    | ![](images/smb%20share%20config.jpg)                      |
-| Static IP Config                    | ![](images/Static%20IP%20settings.jpg)                    |
-| User Setup                          | ![](images/User%20config%20.jpg)                          |
-| User Shell Permissions              | ![](images/User%20Config%20shell.jpg)                     |
 
 ---
 

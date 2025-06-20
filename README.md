@@ -1,128 +1,76 @@
-# Upgrading and Repurposing a Dell OptiPlex 3020 into a Home NAS with TrueNAS SCALE
+# Dell OptiPlex 3020 NAS Upgrade Project
+
+## Overview
+This project documents the upgrade and transformation of a Dell OptiPlex 3020 desktop PC into a TrueNAS SCALE-powered Network Attached Storage (NAS) device. The goal was to repurpose an old PC into a cost-effective, fully functioning personal cloud solution with centralized storage and sharing capabilities.
+
+## Objectives
+- Upgrade an outdated Dell PC with new hardware components.
+- Install and configure TrueNAS SCALE for LAN-based storage access.
+- Set up secure SMB shares for multi-device connectivity.
+- Build foundational knowledge in storage, networking, and ZFS.
+
+## Hardware Summary
+- **Base System:** Dell OptiPlex 3020
+- **CPU:** Intel Core i5-4590 @ 3.30GHz
+- **RAM:** Upgraded from 4GB to 8GB DDR3
+- **Storage:** Replaced 500GB HDD with 2TB SATA drive
+- **Add-ons:** PCIe Wi-Fi & Bluetooth card
+- **Boot Device:** 32GB USB drive for TrueNAS SCALE OS
+
+## OS and Software
+- Upgraded from Windows 8.1 to Windows 11 (for hardware validation)
+- Installed TrueNAS SCALE (25.04.1 Community Edition)
+- Created SMB datasets: DocsShare, MediaShare, PhotoShare, jsanwo
+- Static IP configured for persistent access
+- Connected via CX File Explorer (Android) and Windows file explorer
+
+## Current Status
+The system is now running TrueNAS SCALE with shared datasets accessible over LAN. Remote access setup using Tailscale is pending and will be implemented in a follow-up project.
+
+## Screenshots
+
+![Web UI Dashboard](https://github.com/jsanwo85/Dell-optiplex-TrueNas-Upgrade/blob/main/images/Web%20UI%20Dashboard.jpg)
+
+![TueNas Core Installation before TrueNas Scale Installation](https://github.com/jsanwo85/Dell-optiplex-TrueNas-Upgrade/blob/main/images/TueNas%20Core%20Installation%20before%20TrueNas%20Scale%20Installation.jpg)
+
+![SMB Config](https://github.com/jsanwo85/Dell-optiplex-TrueNas-Upgrade/blob/main/images/SMB%20Config.jpg)
+
+![RAM Upgrade Before.](https://github.com/jsanwo85/Dell-optiplex-TrueNas-Upgrade/blob/main/images/RAM%20Upgrade%20Before..jpg)
+
+![RAM Upgrade After](https://github.com/jsanwo85/Dell-optiplex-TrueNas-Upgrade/blob/main/images/RAM%20Upgrade%20After.jpg)
+
+![PCIe Wifi Card](https://github.com/jsanwo85/Dell-optiplex-TrueNas-Upgrade/blob/main/images/PCIe%20Wifi%20Card.jpg)
+
+![Mapped Drive Window](https://github.com/jsanwo85/Dell-optiplex-TrueNas-Upgrade/blob/main/images/Mapped%20Drive%20Window.jpg)
+
+![HDD Installation In BIOS](https://github.com/jsanwo85/Dell-optiplex-TrueNas-Upgrade/blob/main/images/HDD%20Installation%20In%20BIOS.jpg)
+
+![Dataset Creation](https://github.com/jsanwo85/Dell-optiplex-TrueNas-Upgrade/blob/main/images/Dataset%20Creation.jpg)
+
+![CX File Access](https://github.com/jsanwo85/Dell-optiplex-TrueNas-Upgrade/blob/main/images/CX%20File%20Access.jpg)
+
+![BIOS Boot USB](https://github.com/jsanwo85/Dell-optiplex-TrueNas-Upgrade/blob/main/images/BIOS%20Boot%20USB.jpg)
+
+![Dataset Structure](https://github.com/jsanwo85/Dell-optiplex-TrueNas-Upgrade/blob/main/images/Dataset%20Structure.jpg)
+
+![smb share config](https://github.com/jsanwo85/Dell-optiplex-TrueNas-Upgrade/blob/main/images/smb%20share%20config.jpg)
+
+![Static IP settings](https://github.com/jsanwo85/Dell-optiplex-TrueNas-Upgrade/blob/main/images/Static%20IP%20settings.jpg)
+
+![User config ](https://github.com/jsanwo85/Dell-optiplex-TrueNas-Upgrade/blob/main/images/User%20config%20.jpg)
+
+![User Config shell](https://github.com/jsanwo85/Dell-optiplex-TrueNas-Upgrade/blob/main/images/User%20Config%20shell.jpg)
 
 ---
 
-## 🧰 Overview
+## GitHub Repository Contents
+- 📁 `images/` – Project snapshots & evidence of implementation
+- 📄 `README.md` – This documentation
 
-This hands-on home lab project demonstrates how I repurposed a legacy **Dell OptiPlex 3020** desktop to serve as a fully functional **Network Attached Storage (NAS)** system using **TrueNAS SCALE**.
+## Author
+**Joseph Oladimeji Sanwo**  
+📧 [LinkedIn](https://www.linkedin.com/in/jsanwo85/)  
+🔗 [GitHub](https://github.com/jsanwo85)
 
-The upgrade included hardware improvements, OS replacement, network tuning, and file-sharing configuration to transform the machine into a cost-effective personal cloud.
-
----
-
-## 🎯 Objectives
-
-- Extend the useful life of an old PC
-- Learn hands-on server and storage configuration
-- Build a low-cost home cloud solution
-- Practice user permissions and ACL
-- Prepare for remote access setup (still in progress)
-
----
-
-## 🧱 Hardware Upgrades
-
-| Component       | Before               | After                       |
-|----------------|----------------------|-----------------------------|
-| RAM            | 4GB DDR3             | 8GB DDR3 (2×4GB)            |
-| Storage        | 500GB HDD            | 2TB SATA HDD                |
-| Boot Device    | Internal HDD         | 32GB USB Stick (for OS)     |
-| OS             | Windows 8            | Windows 11 → TrueNAS SCALE  |
-| Networking     | None (no Wi-Fi)      | PCIe Wi-Fi & Bluetooth Card |
-| Connectivity   | DHCP IP              | Static IP: 192.168.168.100  |
-
-📸 _Photos below show before/after of RAM, storage, BIOS, and card installation._
-
----
-
-## 💻 Software Configuration
-
-### 🧩 Operating System
-- **Upgraded from Windows 8 to Windows 11** for verification and backup
-- Then, clean install of **TrueNAS SCALE** via bootable USB
-
-### 🛠️ TrueNAS Setup
-- Installed on external USB stick, 2TB HDD used as data pool (`Main`)
-- Created datasets: `DocsShare`, `Main/jsanwo`
-- Configured static IP address
-- Setup SMB (Windows File Share) for LAN access
-
-### 🔐 Permissions
-- Created user: `jsanwo`
-- Applied dataset ACL with full read/write permissions
-- Connected from Android via **CX File Explorer** and Windows via mapped drive
-
----
-
-## 🌐 Network Configuration
-
-- Set router to assign **static IP** to TrueNAS: `192.168.168.100`
-- Verified LAN access across devices
-- 📱 Android + 🖥️ Windows both successfully connected to shared files
-
----
-
-## 🐞 Challenges Faced
-
-- `ix-applications` dataset permission issues
-- ACL errors while saving user config
-- SMB share mapping failures due to incorrect passwords
-- Static IP reverting after reinstall
-- ⚠️ **Tailscale and remote access app service** setup failed due to app deployment errors
-
-> 🔧 **Remote access with Tailscale** is still a work in progress and will be handled as a follow-up project.
-
----
-
-## 📸 Project Snapshots
-
-> _Be sure your uploaded images are in the `/images/` folder for these to work properly._
-
-### 🖼️ Hardware
-- ![RAM Upgrade](images/ram_upgrade_after.jpg)
-- ![HDD Installation](images/hdd_installation.jpg)
-- ![PCIe Card](images/pcie_wifi_card.jpg)
-
-### 🖥️ TrueNAS Setup
-- ![BIOS Boot USB](images/bios_boot_usb.jpg)
-- ![TrueNAS Web UI](images/web_ui_dashboard.jpg)
-- ![Dataset Creation](images/dataset_creation.jpg)
-
-### 🔄 Sharing
-- ![SMB Access on Windows](images/mapped_drive_windows.jpg)
-- ![CX File Access](images/cx_file_access.jpg)
-- ![Router IP Reservation](images/router_static_ip.jpg)
-
----
-
-## 📁 Config Files
-
-All configuration notes can be found in the `/configs` folder:
-- `dataset_structure.txt`
-- `smb_share_config.yaml`
-- `static_ip_settings.txt`
-
----
-
-## ✅ Results
-
-- Built a modern NAS from a 10-year-old machine
-- Gained hands-on Linux & TrueNAS admin skills
-- Successfully enabled LAN-based personal cloud
-- 📌 Remote access setup (Tailscale) will be handled in **Phase 2**
-
----
-
-## 🔗 Repository
-
-All notes, configs, and screenshots are included in this repo.  
-🔗 Shareable project link: `https://github.com/yourusername/dell-optiplex-truenas-upgrade`
-
----
-
-## 💼 Tags
-
-`#TrueNAS` `#ITProjects` `#HomeLab` `#Networking` `#Cybersecurity` `#OpenSource` `#DellOptiplex`
-
-# Dell-optiplex-TrueNas-Upgrade
-Repurposing a Dell OptiPlex 3020 into a Home NAS using TrueNAS SCALE
+## Tags
+#TrueNAS #NAS #DellOptiPlex #OpenSource #ZFS #Networking #Cybersecurity #HomeLab

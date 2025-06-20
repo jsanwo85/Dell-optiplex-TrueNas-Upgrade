@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tailscale
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tailscale
+  template:
+    metadata:
+      labels:
+        app: tailscale
+    spec:
+      containers:
+        - name: tailscale
+          image: tailscale/tailscale:latest
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+                - SYS_MODULE
+          env:
+            - name: TS_AUTHKEY
+              value: "" # leave blank to manually run 'tailscale up'
+          command: ["/bin/sh"]
+          args: ["-c", "tailscaled & sleep 5 && tailscale up --accept-dns=false --hostname truenas"]
+          volumeMounts:
+            - mountPath: /dev/net/tun
+              name: dev-net-tun
+      volumes:
+        - name: dev-net-tun
+          hostPath:
+            path: /dev/net/tun
+            type: CharDevice

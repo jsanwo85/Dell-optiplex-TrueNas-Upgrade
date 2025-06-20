@@ -97,7 +97,7 @@ This project demonstrates how I repurposed an aging **Dell OptiPlex 3020** deskt
 
 **Joseph Oladimeji Sanwo**  
 MSc Applied Cybersecurity – UK  
-Email: lizteevera@gmail.com  
+Email: joseph.sanwo1@gmail.com  
 GitHub: [@jsanwo85](https://github.com/jsanwo85)
 
 ---
